@@ -82,7 +82,7 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.36, y: 0.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -126,8 +126,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.25, y: 2.25}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 0.36, y: 0.36}
+    newSize: {x: 0.36, y: 0.36}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -147,12 +147,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e5de8e7580c8344825bd653ef6e648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
   jumpableGround:
     serializedVersion: 2
     m_Bits: 64
   movementSpeed: 7
   jumpForce: 14
   jumpSound: {fileID: 0}
+  wallJumpTime: 0.1
+  wallSlideSpeed: 0.3
+  wallDistance: 1.25
 --- !u!114 &9094129477283067629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,5 +171,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9d533e9bcb43242aed152d541ca92e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cherriesText: {fileID: 0}
+  fishText: {fileID: 0}
   itemCollectingSound: {fileID: 0}
