@@ -12,10 +12,10 @@ public class PlayerMovement : MonoBehaviour
 
 
     private float directionX = 0f;
-   
+    private bool doubleJump;
 
 
-    // [SerializeField]private LayerMask wallLayer;
+    [SerializeField]private LayerMask wallLayer;
     [SerializeField]private LayerMask jumpableGround;
     //sama og að gera variables public til að unity sjái
     [SerializeField]private float movementSpeed = 7f;
@@ -25,6 +25,14 @@ public class PlayerMovement : MonoBehaviour
     private enum MovementState {idle,running,jumping,falling}
 
     [SerializeField] private AudioSource jumpSound;
+
+    [Header("Wall Jumping")]
+    public float wallJumpTime = 0.1f;
+    public float wallSlideSpeed = 0.3f;
+    public float wallDistance = 1.0f;
+    private bool isWallSliding = false;
+    RaycastHit2D wallCheckHit;
+    float jumpTime;
 
     // Start is called before the first frame update
     void Start()
@@ -45,11 +53,15 @@ public class PlayerMovement : MonoBehaviour
         body.velocity = new Vector2(directionX * movementSpeed, body.velocity.y);
  
 
-       
+        if (IsPlayerGrounded() && !Input.GetButton("Jump"))
+        {
+            doubleJump = false;
+        }
 
-        if (Input.GetButtonDown("Jump") && IsPlayerGrounded())
+        if (Input.GetButtonDown("Jump") && (IsPlayerGrounded() || doubleJump) || isWallSliding && Input.GetButtonDown("Jump"))
         {
             body.velocity = new Vector2(body.velocity.x, jumpForce);
+            doubleJump = !doubleJump;
         }
 
         //The longer you hold jump button the higher to jump
@@ -58,6 +70,32 @@ public class PlayerMovement : MonoBehaviour
             body.velocity = new Vector2(body.velocity.x, body.velocity.y * 0.5f);
         }
 
+        //Wall Jumping
+        if (directionX > 0f)
+        {
+            wallCheckHit = Physics2D.Raycast(transform.position, new Vector2(wallDistance, 0), wallDistance, wallLayer);
+            // Debug.DrawRay(transform.position, new Vector2(wallDistance, 0), Color.blue);
+        }
+        else 
+        {
+            wallCheckHit = Physics2D.Raycast(transform.position, new Vector2(-wallDistance, 0), wallDistance, wallLayer);
+            // Debug.DrawRay(transform.position, new Vector2(-wallDistance, 0), Color.blue);
+        }
+        
+        if (wallCheckHit && !IsPlayerGrounded() && directionX != 0)
+        {
+            isWallSliding = true;
+            jumpTime = Time.time + wallJumpTime;
+        }
+        else if (jumpTime < Time.time)
+        {
+            isWallSliding = false;
+        }
+
+        if (isWallSliding)
+        {
+            body.velocity = new Vector2(body.velocity.x, Mathf.Clamp(body.velocity.y, wallSlideSpeed, float.MaxValue));
+        }
 
         UpdateAnimation();
 
