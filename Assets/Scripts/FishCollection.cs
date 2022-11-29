@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class FishCollection : MonoBehaviour
 {
-    private int cherriesCollected = 0;
+    private int fishCollected = 0;
 
-    [SerializeField]private Text cherriesText;
+    [SerializeField]private Text fishText;
 
     [SerializeField] private AudioSource itemCollectingSound;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -16,8 +16,8 @@ public class FishCollection : MonoBehaviour
         {
             // itemCollectingSound.Play();
             Destroy(collision.gameObject);
-            cherriesCollected++;
-            cherriesText.text = "Fishies: " + cherriesCollected + "/6"; 
+            fishCollected++;
+            fishText.text = "Fishies: " + fishCollected + "/6"; 
         }    
     }
     
