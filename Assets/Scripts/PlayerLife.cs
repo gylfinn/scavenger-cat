@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerLife : MonoBehaviour
 {
@@ -9,6 +10,8 @@ private Animator anim;
     private Rigidbody2D body;
     
     [SerializeField] private AudioSource deathSound;
+    [SerializeField] private int playerlives;
+    [SerializeField]private Text playerText;
     private void Start()
     {
         body = GetComponent<Rigidbody2D>();
@@ -23,11 +26,20 @@ private Animator anim;
         }
     }
 
+    private void RemoveLifefromText()
+    {
+        playerText.text = "Lives: " + playerlives + "/9"; 
+    }
     private void PlayerDeath()
     {
         deathSound.Play();
         body.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death_trigger");
+        playerlives--;
+        if (playerlives == 0)
+        {
+            //game over screen
+        }
     }
 
     //reloads current level
