@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Wall Jumping")]
     public float wallJumpTime = 0.1f;
     public float wallSlideSpeed = 0.3f;
-    public float wallDistance = 1.0f;
+    public float wallDistance = 1.25f;
     private bool isWallSliding = false;
     RaycastHit2D wallCheckHit;
     float jumpTime;
@@ -74,12 +74,12 @@ public class PlayerMovement : MonoBehaviour
         if (directionX > 0f)
         {
             wallCheckHit = Physics2D.Raycast(transform.position, new Vector2(wallDistance, 0), wallDistance, wallLayer);
-            // Debug.DrawRay(transform.position, new Vector2(wallDistance, 0), Color.blue);
+            Debug.DrawRay(transform.position, new Vector2(wallDistance, 0), Color.blue);
         }
         else 
         {
             wallCheckHit = Physics2D.Raycast(transform.position, new Vector2(-wallDistance, 0), wallDistance, wallLayer);
-            // Debug.DrawRay(transform.position, new Vector2(-wallDistance, 0), Color.blue);
+            Debug.DrawRay(transform.position, new Vector2(-wallDistance, 0), Color.blue);
         }
         
         if (wallCheckHit && !IsPlayerGrounded() && directionX != 0)
@@ -105,8 +105,8 @@ public class PlayerMovement : MonoBehaviour
     //check if Player touches the terrain
     private bool IsPlayerGrounded()
     {
-        return Physics2D.OverlapCircle(coll.bounds.center, 1.0f, jumpableGround);
-        // return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);
+        // return Physics2D.OverlapCircle(coll.bounds.center, 1.6f, jumpableGround);
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);
     }
 
     private void UpdateAnimation()
