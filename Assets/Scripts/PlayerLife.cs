@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerLife : MonoBehaviour
 {
-private Animator anim;
+    private Animator anim;
     private Rigidbody2D body;
     
     [SerializeField] private AudioSource deathSound;
@@ -20,7 +20,15 @@ private Animator anim;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Trap") || collision.gameObject.CompareTag("Enemy") )
+        if (collision.gameObject.CompareTag("Trap"))
+        {
+            PlayerDeath();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             PlayerDeath();
         }

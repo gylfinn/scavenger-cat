@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D body;
     private BoxCollider2D coll;
-    // private Animator anim;
+    private Animator anim;
     private SpriteRenderer sprite;
 
 
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]private float jumpForce = 14f;
 
 
-    private enum MovementState {idle,running,jumping,falling}
+    private enum MovementState {idle,running,jumping,climbing,falling}
 
     [SerializeField] private AudioSource jumpSound;
 
@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
-        // anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
     }
 
@@ -57,8 +57,8 @@ public class PlayerMovement : MonoBehaviour
         {
             doubleJump = false;
         }
-
-        if (Input.GetButtonDown("Jump") && (IsPlayerGrounded() || doubleJump) || isWallSliding && Input.GetButtonDown("Jump"))
+    
+        if ((Input.GetButtonDown("Jump") && (IsPlayerGrounded() || doubleJump)) || (isWallSliding && Input.GetButtonDown("Jump")))
         {
             body.velocity = new Vector2(body.velocity.x, jumpForce);
             doubleJump = !doubleJump;
@@ -96,7 +96,6 @@ public class PlayerMovement : MonoBehaviour
         {
             body.velocity = new Vector2(body.velocity.x, Mathf.Clamp(body.velocity.y, wallSlideSpeed, float.MaxValue));
         }
-
         UpdateAnimation();
 
         
@@ -105,8 +104,8 @@ public class PlayerMovement : MonoBehaviour
     //check if Player touches the terrain
     private bool IsPlayerGrounded()
     {
-        return Physics2D.OverlapCircle(coll.bounds.center, 1.0f, jumpableGround);
-        // return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);
+        // return Physics2D.OverlapCircle(coll.bounds.center, 1.0f, jumpableGround);
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);
     }
 
     private void UpdateAnimation()
@@ -134,9 +133,13 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (body.velocity.y < -0.1f)
         {
-            state = MovementState.falling;
+            state = MovementState.jumping;
         }
-
-        // anim.SetInteger("state", (int)state);
+            
+        if (isWallSliding)
+        {
+            state = MovementState.climbing;
+        }
+        anim.SetInteger("state", (int)state);
     }
 }
