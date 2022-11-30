@@ -5,6 +5,8 @@ using UnityEngine;
 public class DogLogic : MonoBehaviour
 {
     private bool isBarking;
+    private bool firstBark;
+    [SerializeField]private AudioSource dogsound;
     [SerializeField]private GameObject player;
 
     private void Update()
@@ -13,7 +15,12 @@ public class DogLogic : MonoBehaviour
         {
             if (isBarking == false)
             {
-                Invoke("DogBarking", 2);//this will happen after 2 seconds
+                if (!firstBark)
+                {
+                    DogBarking();
+                    firstBark = true;
+                }
+                Invoke("DogBarking", 3);//this will happen after 2 seconds
                 isBarking = true;
             }
         }
@@ -22,6 +29,7 @@ public class DogLogic : MonoBehaviour
     private void DogBarking()
     {
         //Play Bark Sound;
+        dogsound.Play();
         isBarking = !isBarking;
     }
 }

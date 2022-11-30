@@ -135,13 +135,14 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (body.velocity.y < -0.1f)
         {
-            state = MovementState.jumping;
+            state = MovementState.falling;
         }
             
         if (isWallSliding)
         {
             state = MovementState.climbing;
         }
+        
         anim.SetInteger("state", (int)state);
     }
 

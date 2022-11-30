@@ -12,6 +12,7 @@ public class PlayerLife : MonoBehaviour
     private FloatSo playerLives;
 
     [SerializeField] private AudioSource deathSound;
+    [SerializeField]private AudioSource dogBark;
     
     [SerializeField]private Text playerText;
     [SerializeField]private LayerMask enemyLayer;
@@ -32,6 +33,7 @@ public class PlayerLife : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Dog"))
         {
+            dogBark.Play();
             PlayerDeath();
         }
         else if (collision.gameObject.CompareTag("Enemy"))

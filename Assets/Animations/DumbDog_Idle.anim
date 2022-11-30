@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cat_Jumping
+  m_Name: DumbDog_Idle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,12 +20,18 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 8b2d01dfb260899469e7a49ffeb18ade, type: 3}
+      value: {fileID: -1769666272, guid: ca46a7a1962b9654aa00c4da13b9f394, type: 3}
+    - time: 0.06666667
+      value: {fileID: 1966662789, guid: ca46a7a1962b9654aa00c4da13b9f394, type: 3}
+    - time: 0.13333334
+      value: {fileID: -1817384702, guid: ca46a7a1962b9654aa00c4da13b9f394, type: 3}
+    - time: 0.2
+      value: {fileID: 1172242572, guid: ca46a7a1962b9654aa00c4da13b9f394, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 5
+  m_SampleRate: 15
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -40,13 +46,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 8b2d01dfb260899469e7a49ffeb18ade, type: 3}
+    - {fileID: -1769666272, guid: ca46a7a1962b9654aa00c4da13b9f394, type: 3}
+    - {fileID: 1966662789, guid: ca46a7a1962b9654aa00c4da13b9f394, type: 3}
+    - {fileID: -1817384702, guid: ca46a7a1962b9654aa00c4da13b9f394, type: 3}
+    - {fileID: 1172242572, guid: ca46a7a1962b9654aa00c4da13b9f394, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.2
+    m_StopTime: 0.26666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
