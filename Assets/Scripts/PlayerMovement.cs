@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         directionX = Input.GetAxisRaw("Horizontal");
 
         //move left or right
