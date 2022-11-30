@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class EvilCatDeath : MonoBehaviour
 {
+    private Animator anim;
+    private Rigidbody2D body;
 
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+        body = GetComponent<Rigidbody2D>();
+    }
 
+    //EnemyDeath gets called through the end of the EvilCat_death animation
     private void EnemyDeath()
     {
         this.gameObject.SetActive(false);
         Destroy(this.gameObject);
         
         // deathSound.Play();
-        // body.bodyType = RigidbodyType2D.Static;
-        // anim.SetTrigger("death_trigger");
+
         return;
     }
 
@@ -21,11 +28,10 @@ public class EvilCatDeath : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log(collision.gameObject.transform.position.y - this.gameObject.transform.position.y + 1.5f);
             if ((collision.gameObject.transform.position.y) > this.gameObject.transform.position.y + 1.5f)
             {
-                Debug.Log("Player Y: "+ collision.gameObject.transform.position.y + " Evil Cat Y: "+ (this.gameObject.transform.position.y + 1.5f));
-                EnemyDeath();
+                body.bodyType = RigidbodyType2D.Static;
+                anim.SetTrigger("death_trigger");
             }
         }
     }
