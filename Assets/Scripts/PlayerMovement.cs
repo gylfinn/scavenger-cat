@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -142,4 +143,12 @@ public class PlayerMovement : MonoBehaviour
         }
         anim.SetInteger("state", (int)state);
     }
+
+    void OnTriggerEnter2D (Collider2D other)
+	{ 
+		if (other.gameObject.tag == "Finish")
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		}
+	}
 }
