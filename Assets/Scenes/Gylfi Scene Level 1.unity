@@ -92352,6 +92352,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1395247196}
     - target: {fileID: 4867376014576997284, guid: 2e37ef106fe949d4e82d50eb1ba2d891, type: 3}
+      propertyPath: playerLives
+      value: 
+      objectReference: {fileID: 11400000, guid: e92dc21fcf9b92e438deb18dddbdbb98, type: 2}
+    - target: {fileID: 4867376014576997284, guid: 2e37ef106fe949d4e82d50eb1ba2d891, type: 3}
       propertyPath: playerlives
       value: 9
       objectReference: {fileID: 0}
@@ -92359,6 +92363,10 @@ PrefabInstance:
       propertyPath: fishText
       value: 
       objectReference: {fileID: 1478397819}
+    - target: {fileID: 4867376014576997289, guid: 2e37ef106fe949d4e82d50eb1ba2d891, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e37ef106fe949d4e82d50eb1ba2d891, type: 3}
 --- !u!1001 &6759261431589989741

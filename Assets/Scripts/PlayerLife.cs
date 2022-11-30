@@ -8,14 +8,20 @@ public class PlayerLife : MonoBehaviour
 {
     private Animator anim;
     private Rigidbody2D body;
-    
+    [SerializeField]
+    private FloatSo playerLives;
+
     [SerializeField] private AudioSource deathSound;
-    [SerializeField] private int playerlives;
+    
     [SerializeField]private Text playerText;
+
+
+
     private void Start()
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        playerText.text = "Lives: " + playerLives.Value + "/9"; 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -34,21 +40,20 @@ public class PlayerLife : MonoBehaviour
         }
     }
 
-    private void RemoveLifefromText()
-    {
-        playerText.text = "Lives: " + playerlives + "/9"; 
-    }
+ 
     private void PlayerDeath()
     {
         deathSound.Play();
         body.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death_trigger");
-        playerlives--;
-        if (playerlives == 0)
-        {
+        playerLives.Value--;
+ 
+
             //game over screen
-        }
+
     }
+
+ 
 
     //reloads current level
     private void RestartLevel()
