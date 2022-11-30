@@ -30,6 +30,10 @@ public class PlayerLife : MonoBehaviour
         {
             PlayerDeath();
         }
+        else if (collision.gameObject.CompareTag("Dog"))
+        {
+            PlayerDeath();
+        }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
             if ((collision.gameObject.transform.localPosition.y + 1.5f) > this.transform.localPosition.y)
