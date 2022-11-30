@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class EvilCatDeath : MonoBehaviour
 {
-    [SerializeField]private GameObject enemy;
+
+
     private void EnemyDeath()
     {
-        enemy.tag = "DeadEnemy";
-        Destroy(enemy);
+        this.gameObject.SetActive(false);
+        Destroy(this.gameObject);
         
         // deathSound.Play();
         // body.bodyType = RigidbodyType2D.Static;
@@ -20,7 +21,12 @@ public class EvilCatDeath : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            EnemyDeath();
+            Debug.Log(collision.gameObject.transform.position.y - this.gameObject.transform.position.y + 1.5f);
+            if ((collision.gameObject.transform.position.y) > this.gameObject.transform.position.y + 1.5f)
+            {
+                Debug.Log("Player Y: "+ collision.gameObject.transform.position.y + " Evil Cat Y: "+ (this.gameObject.transform.position.y + 1.5f));
+                EnemyDeath();
+            }
         }
     }
 }

@@ -19,6 +19,11 @@ public class EnemyLogic : MonoBehaviour
     }
     private void Update()
     {
+        if (tag == "DeadEnemy")
+        {
+            Debug.Log(tag);
+        }
+        
         if (Vector3.Distance (transform.position, player.transform.position) < 10)
         {
             if (isJumping == false)
@@ -28,7 +33,7 @@ public class EnemyLogic : MonoBehaviour
                     EnemyCatJumping();
                     firstJump = true;
                 }
-                Debug.Log(jumpDir);
+                
                 Invoke("EnemyCatJumping", 2);//this will happen after 2 seconds
                 isJumping = true;
             }

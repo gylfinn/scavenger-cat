@@ -14,7 +14,7 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] private AudioSource deathSound;
     
     [SerializeField]private Text playerText;
-
+    [SerializeField]private LayerMask enemyLayer;
 
 
     private void Start()
@@ -26,19 +26,21 @@ public class PlayerLife : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Trap") || collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Trap"))
         {
             PlayerDeath();
         }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            if ((collision.gameObject.transform.localPosition.y + 1.5f) > this.transform.localPosition.y)
+            {
+                Debug.Log("Player Y: "+ this.transform.localPosition.y + " Evil Cat Y: "+ (collision.gameObject.transform.localPosition.y + 1.5f));
+                PlayerDeath();
+            }
+        }
+
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            PlayerDeath();
-        }
-    }
 
  
     private void PlayerDeath()

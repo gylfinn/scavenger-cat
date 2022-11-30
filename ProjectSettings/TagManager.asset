@@ -19,8 +19,8 @@ TagManager:
   - Ground
   - Walls
   - Jumpable Walls
-  - 
-  - 
+  - Player
+  - NPC
   - 
   - 
   - 
