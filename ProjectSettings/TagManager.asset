@@ -9,6 +9,7 @@ TagManager:
   - Trap
   - EnemyWeakSpot
   - DeadEnemy
+  - Dog
   layers:
   - Default
   - TransparentFX
