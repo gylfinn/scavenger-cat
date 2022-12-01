@@ -5,6 +5,7 @@ using UnityEngine;
 public class GateController : MonoBehaviour
 {
     private Animator anim;
+    [SerializeField]private AudioSource gateOpenSound;
     private Collider2D gateCollider;
 
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class GateController : MonoBehaviour
     }
     public void OpenGate()
     {
+        gateOpenSound.Play();
         anim.SetTrigger("open_gate_trigger");
         gateCollider.isTrigger = true;
     }
