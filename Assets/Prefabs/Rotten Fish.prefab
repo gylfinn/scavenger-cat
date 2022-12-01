@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5014017220444943777}
   m_Layer: 0
   m_Name: Rotten Fish
-  m_TagString: Enemy
+  m_TagString: RottenFish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

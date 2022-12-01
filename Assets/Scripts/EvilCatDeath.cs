@@ -5,7 +5,9 @@ using UnityEngine;
 public class EvilCatDeath : MonoBehaviour
 {
     private Animator anim;
+    private bool isDead;
     private Rigidbody2D body;
+    [SerializeField]private AudioSource evilcatDeath;
 
     private void Start()
     {
@@ -16,22 +18,28 @@ public class EvilCatDeath : MonoBehaviour
     //EnemyDeath gets called through the end of the EvilCat_death animation
     private void EnemyDeath()
     {
+        //Destroy(this.gameObject);
         this.gameObject.SetActive(false);
-        Destroy(this.gameObject);
-        
         // deathSound.Play();
 
-        return;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (!isDead)
         {
-            if ((collision.gameObject.transform.position.y) > this.gameObject.transform.position.y + 1.5f)
+            if (collision.gameObject.CompareTag("Player"))
             {
-                body.bodyType = RigidbodyType2D.Static;
-                anim.SetTrigger("death_trigger");
+                if ((collision.gameObject.transform.position.y) > this.gameObject.transform.position.y + 1.5f)
+                {
+                    isDead = !isDead;
+                    evilcatDeath.Play();
+                    // this.gameObject.SetActive(false);
+                    body.bodyType = RigidbodyType2D.Static;
+                    anim.SetTrigger("death_trigger");
+                }
+
+                    
             }
         }
     }
