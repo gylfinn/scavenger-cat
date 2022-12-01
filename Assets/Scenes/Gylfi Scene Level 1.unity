@@ -91750,6 +91750,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rotten Fish
       objectReference: {fileID: 0}
+    - target: {fileID: 5014017220444943776, guid: eca5c187368c9224ba3e9b48c564f688, type: 3}
+      propertyPath: m_TagString
+      value: RottenFish
+      objectReference: {fileID: 0}
     - target: {fileID: 5014017221096994332, guid: eca5c187368c9224ba3e9b48c564f688, type: 3}
       propertyPath: m_RootOrder
       value: 0

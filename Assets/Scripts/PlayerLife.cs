@@ -25,6 +25,13 @@ public class PlayerLife : MonoBehaviour
         playerText.text = "Lives: " + playerLives.Value + "/9"; 
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("RottenFish"))
+        {
+            PlayerDeath();
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Trap"))
@@ -34,6 +41,10 @@ public class PlayerLife : MonoBehaviour
         else if (collision.gameObject.CompareTag("Dog"))
         {
             dogBark.Play();
+            PlayerDeath();
+        }
+        else if (collision.gameObject.CompareTag("RottenFish"))
+        {
             PlayerDeath();
         }
         else if (collision.gameObject.CompareTag("Enemy"))
