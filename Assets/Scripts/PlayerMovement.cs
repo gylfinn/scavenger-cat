@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -46,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         directionX = Input.GetAxisRaw("Horizontal");
 
         //move left or right
@@ -133,13 +135,22 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (body.velocity.y < -0.1f)
         {
-            state = MovementState.jumping;
+            state = MovementState.falling;
         }
             
         if (isWallSliding)
         {
             state = MovementState.climbing;
         }
+        
         anim.SetInteger("state", (int)state);
     }
+
+    void OnTriggerEnter2D (Collider2D other)
+	{ 
+		if (other.gameObject.tag == "Finish")
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		}
+	}
 }

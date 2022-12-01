@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,8 +110,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 512
-        height: 512
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: beb217c10327735448fa0599c699070c
-      internalID: 2026008839
+      spriteID: fbbec986556ec254099a8720689fca99
+      internalID: -1769666272
       vertices: []
       indices: 
       edges: []
@@ -129,10 +129,10 @@ TextureImporter:
       name: dumb_dog_idle_1
       rect:
         serializedVersion: 2
-        x: 512
+        x: 100
         y: 0
-        width: 512
-        height: 512
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f3bfdfe9956c8a4cbe88b9754ad9421
-      internalID: 1752102346
+      spriteID: 3ee9692b12217174195149516773ca95
+      internalID: 1966662789
       vertices: []
       indices: 
       edges: []
@@ -150,10 +150,10 @@ TextureImporter:
       name: dumb_dog_idle_2
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 200
         y: 0
-        width: 512
-        height: 512
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f0777111b847644ba0688f4bba4278a
-      internalID: 736285747
+      spriteID: 8899c481dd955b04f99bb67c4d32dfbe
+      internalID: -1817384702
       vertices: []
       indices: 
       edges: []
@@ -171,10 +171,10 @@ TextureImporter:
       name: dumb_dog_idle_3
       rect:
         serializedVersion: 2
-        x: 1536
+        x: 300
         y: 0
-        width: 512
-        height: 512
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5220cdb81a06b874d9a4ac5df415cf91
-      internalID: 1666859894
+      spriteID: 1ccc372a9a4998a44aca1726cfe2d352
+      internalID: 1172242572
       vertices: []
       indices: 
       edges: []
@@ -199,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      dumb_dog_idle_2: 736285747
-      dumb_dog_idle_1: 1752102346
-      dumb_dog_idle_0: 2026008839
-      dumb_dog_idle_3: 1666859894
+      dumb_dog_idle_2: -1817384702
+      dumb_dog_idle_1: 1966662789
+      dumb_dog_idle_0: -1769666272
+      dumb_dog_idle_3: 1172242572
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
