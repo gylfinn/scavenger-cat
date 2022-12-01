@@ -11,6 +11,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 8732939826432240321}
+<<<<<<< HEAD
     m_Position: {x: 340, y: -50, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
@@ -20,9 +21,23 @@ AnimatorStateMachine:
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 80, y: -140, z: 0}
   m_EntryPosition: {x: 80, y: 120, z: 0}
+=======
+    m_Position: {x: 290, y: 30, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 4860569059734013824}
+    m_Position: {x: 290, y: 120, z: 0}
+  m_ChildStateMachines: []
+  m_AnyStateTransitions:
+  - {fileID: 1242212476897467587}
+  m_EntryTransitions: []
+  m_StateMachineTransitions: {}
+  m_StateMachineBehaviours: []
+  m_AnyStatePosition: {x: 50, y: 30, z: 0}
+  m_EntryPosition: {x: 50, y: 120, z: 0}
+>>>>>>> 75d842e81d84690404463a2438e07e68c1c5b65c
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 8732939826432240321}
+  m_DefaultState: {fileID: 4860569059734013824}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -32,12 +47,20 @@ AnimatorController:
   m_Name: Gate
   serializedVersion: 5
   m_AnimatorParameters:
+<<<<<<< HEAD
   - m_Name: open_gate
+=======
+  - m_Name: open_gate_trigger
+>>>>>>> 75d842e81d84690404463a2438e07e68c1c5b65c
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
+<<<<<<< HEAD
     m_Controller: {fileID: 9100000}
+=======
+    m_Controller: {fileID: 0}
+>>>>>>> 75d842e81d84690404463a2438e07e68c1c5b65c
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -51,14 +74,25 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+<<<<<<< HEAD
 --- !u!1101 &3267200637238320839
+=======
+--- !u!1101 &1242212476897467587
+>>>>>>> 75d842e81d84690404463a2438e07e68c1c5b65c
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
+<<<<<<< HEAD
   m_Conditions: []
+=======
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: open_gate_trigger
+    m_EventTreshold: 0
+>>>>>>> 75d842e81d84690404463a2438e07e68c1c5b65c
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8732939826432240321}
   m_Solo: 0
@@ -73,6 +107,35 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+<<<<<<< HEAD
+=======
+--- !u!1102 &4860569059734013824
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Gate_Idle
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: a342dc69cb9b20e43a1e55c5934e4f6e, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+>>>>>>> 75d842e81d84690404463a2438e07e68c1c5b65c
 --- !u!1102 &8732939826432240321
 AnimatorState:
   serializedVersion: 6
