@@ -63,12 +63,14 @@ public class PlayerMovement : MonoBehaviour
         if ((Input.GetButtonDown("Jump") && (IsPlayerGrounded() || doubleJump)) || (isWallSliding && Input.GetButtonDown("Jump")))
         {
             body.velocity = new Vector2(body.velocity.x, jumpForce);
+            jumpSound.Play();
             doubleJump = !doubleJump;
         }
 
         //The longer you hold jump button the higher to jump
         if (Input.GetButtonUp("Jump") && body.velocity.y > 0f)
         {
+            
             body.velocity = new Vector2(body.velocity.x, body.velocity.y * 0.5f);
         }
 
