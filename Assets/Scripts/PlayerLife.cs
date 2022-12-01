@@ -66,10 +66,11 @@ public class PlayerLife : MonoBehaviour
         body.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death_trigger");
         playerLives.Value--;
- 
-
+        if (playerLives.Value <= 0)
+        {
             //game over screen
-
+            GameManager.instance.GameOver();
+        }
     }
 
  
