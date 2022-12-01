@@ -11,6 +11,7 @@ public class PlayerLife : MonoBehaviour
     [SerializeField]
     private FloatSo playerLives;
 
+    [SerializeField]private GameObject gameOverText;
     [SerializeField] private AudioSource deathSound;
     [SerializeField]private AudioSource dogBark;
     
@@ -59,13 +60,13 @@ public class PlayerLife : MonoBehaviour
     }
 
 
- 
     private void PlayerDeath()
     {
         deathSound.Play();
         body.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death_trigger");
         playerLives.Value--;
+        
         if (playerLives.Value <= 0)
         {
             //game over screen
