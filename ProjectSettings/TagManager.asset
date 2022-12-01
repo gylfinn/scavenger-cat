@@ -46,6 +46,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Tutorial text
+    uniqueID: 1310899591
+    locked: 0
   - name: Background
     uniqueID: 2874869679
     locked: 0
