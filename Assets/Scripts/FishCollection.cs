@@ -10,13 +10,15 @@ public class FishCollection : MonoBehaviour
 
     [SerializeField]private Text fishText;
     [SerializeField]private int totalFish = 1;
-    [SerializeField]private GateController gate;
+    [SerializeField]private GameObject gate;
     [SerializeField]private GameObject levelFinish;
     [SerializeField] private AudioSource itemCollectingSound;
+    private GateController gateController;
 
 
     void Start()
     {
+        gateController = gate.GetComponent<GateController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -34,16 +36,16 @@ public class FishCollection : MonoBehaviour
     {
         if (fishCollected == totalFish && !isOpen)
         {
-            GameObject[] goArray = GameObject.FindGameObjectsWithTag("BlockBox");
-            if (goArray.Length > 0)
-            {
-                for (int i = 0; i < goArray.Length; i++)
-                {
-                    goArray[i].SetActive(false);
-                }
-            }
+            // GameObject[] goArray = GameObject.FindGameObjectsWithTag("BlockBox");
+            // if (goArray.Length > 0)
+            // {
+            //     for (int i = 0; i < goArray.Length; i++)
+            //     {
+            //         goArray[i].SetActive(false);
+            //     }
+            // }
             // gate = FindObjectOfType<GateController>();
-            // gate.OpenGate();
+            gateController.OpenGate();
             isOpen = true; 
         }
     }
