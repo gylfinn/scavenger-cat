@@ -6,12 +6,13 @@ public class LevelComplete : MonoBehaviour
 {
     private AudioSource finishSound;
     private bool levelCompleted = false;
-
-
+    [SerializeField]private GameObject player;
+    private PlayerLife playerLifeLogic;
 
     private void Start()
     {
         finishSound = GetComponent<AudioSource>();
+        playerLifeLogic = player.GetComponent<PlayerLife>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,9 +27,9 @@ public class LevelComplete : MonoBehaviour
 
     private void CompleteLevel()
     {
-        //Loads the next level
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        Application.Quit();
+        playerLifeLogic.ResetLives();
+        playerLifeLogic.RestartLevel();
+
     }
 
 }

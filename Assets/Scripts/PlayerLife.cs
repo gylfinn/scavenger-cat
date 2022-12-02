@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerLife : MonoBehaviour
 {
     private Animator anim;
+    [SerializeField]private float totalLives;
     private Rigidbody2D body;
     [SerializeField]
     private FloatSo playerLives;
@@ -74,10 +75,13 @@ public class PlayerLife : MonoBehaviour
         }
     }
 
- 
+    public void ResetLives()
+    {
+        playerLives.Value = totalLives;
+    }
 
     //reloads current level
-    private void RestartLevel()
+    public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
