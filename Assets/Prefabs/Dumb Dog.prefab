@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5487935082834738267}
   - component: {fileID: 5487935082834738265}
   - component: {fileID: 5487935082834738266}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Dumb Dog
   m_TagString: Dog
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05603218, y: -0.15408325}
+  m_Offset: {x: -0.053045273, y: -0.21385193}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -114,7 +114,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3836479, y: 1.6918335}
+  m_Size: {x: 1.1265831, y: 1.5722961}
   m_EdgeRadius: 0
 --- !u!50 &5487935082834738342
 Rigidbody2D:
