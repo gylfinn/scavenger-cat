@@ -5,18 +5,27 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField]private float startingHealth;
     [SerializeField]private AudioSource hurtSound;
     [SerializeField] private AudioSource deathSound;
     [SerializeField]private AudioSource dogBark;
+    [SerializeField]public FloatSo startingHealth;
     private Animator anim;
     private Rigidbody2D body;
-    public float currentHealth {get; private set;}
-    private void Awake()
+    private BoxCollider2D coll;
+    [SerializeField]public FloatSo currentHealth;
+
+   [Header("iFrames")]
+    [SerializeField]private float iFramesDuration;
+    [SerializeField]private int numberOfFlashes;
+    private SpriteRenderer spriteRend;
+    private void Start()
     {
+        coll = GetComponent<BoxCollider2D>();
+        body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        currentHealth = startingHealth;
+        spriteRend = GetComponent<SpriteRenderer>();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("RottenFish"))
@@ -26,12 +35,13 @@ public class PlayerHealth : MonoBehaviour
     }
     public void TakeDamage()
     {
-        currentHealth -= 1;
+        currentHealth.Value -= 1;
 
-        if (currentHealth > 0)
+        if (currentHealth.Value > 0)
         {
             //player hurt
             anim.SetTrigger("hurt");
+            StartCoroutine(Invulnerability());
             hurtSound.Play();
         }
         else
@@ -48,20 +58,17 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        body = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Trap"))
         {
+            currentHealth.Value -= 1;
             PlayerDeath();
         }
         else if (collision.gameObject.CompareTag("Dog"))
         {
+            currentHealth.Value -= 1;
             dogBark.Play();
             PlayerDeath();
         }
@@ -69,7 +76,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if ((collision.gameObject.transform.localPosition.y + 1.5f) > this.transform.localPosition.y)
             {
-                Debug.Log("Player Y: "+ this.transform.localPosition.y + " Evil Cat Y: "+ (collision.gameObject.transform.localPosition.y + 1.5f));
+                currentHealth.Value -= 1;
                 PlayerDeath();
             }
         }
@@ -80,25 +87,47 @@ public class PlayerHealth : MonoBehaviour
     public void PlayerDeath()
     {
         deathSound.Play();
+        coll.enabled = false;
         body.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death_trigger");
-        
-        if (currentHealth <= 0)
-        {
-            //game over screen
-            GameManager.instance.GameOver();
-        }
     }
 
     public void ResetLives()
     {
-        currentHealth = startingHealth;
+        currentHealth.Value = startingHealth.Value;
+    }
+
+    public void CallGameOver()
+    {
+        currentHealth.Value = 9;
+        GameManager.instance.GameOver();
     }
 
     //reloads current level
     public void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (currentHealth.Value <= 0)
+        {
+            Invoke("CallGameOver",2);
+            // GameManager.instance.GameOver();
+        }
+        else
+        {
+           SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+        }
+    }
+
+    private IEnumerator Invulnerability()
+    {
+        Physics2D.IgnoreLayerCollision(9, 10, true);
+        for (int i = 0; i < numberOfFlashes; i++)
+        {  
+            spriteRend.color = new Color(1,0,0, 0.5f);
+            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
+            spriteRend.color = Color.white;
+            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
+        }
+        Physics2D.IgnoreLayerCollision(9, 10, false);
     }
 
 }
