@@ -5,13 +5,17 @@ using UnityEngine;
 public class EvilCatDeath : MonoBehaviour
 {
     private Animator anim;
+    [SerializeField]
+    private GameObject player;
     private BoxCollider2D boxCollider;
     private bool isDead;
     private Rigidbody2D body;
+    private Rigidbody2D player_body;
     [SerializeField]private AudioSource evilcatDeath;
 
     private void Start()
     {
+        player_body = player.GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         body = GetComponent<Rigidbody2D>();
@@ -33,6 +37,7 @@ public class EvilCatDeath : MonoBehaviour
             {
                 if ((collision.gameObject.transform.position.y) > this.gameObject.transform.position.y + 1.5f)
                 {
+                    player_body.velocity = new Vector2(player_body.velocity.x, 14f);
                     isDead = !isDead;
                     body.bodyType = RigidbodyType2D.Static;
                     boxCollider.enabled = false;

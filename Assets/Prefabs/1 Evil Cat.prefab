@@ -184,8 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  jumpForce: 20
-  jumpLength: 3
+  jumpForce: 10
+  jumpLength: 7
   jumpDir: 0
 --- !u!114 &1550996016907086576
 MonoBehaviour:
