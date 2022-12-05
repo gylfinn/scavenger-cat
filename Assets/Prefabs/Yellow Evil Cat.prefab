@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4079318910594979387}
   - component: {fileID: 61961956473589905}
   m_Layer: 10
-  m_Name: Evil Cat
+  m_Name: Yellow Evil Cat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1676916230, guid: d9bcb3f72d6689a469c01a2ce4c22a54, type: 3}
+  m_Sprite: {fileID: 507415133, guid: ebdefe23b6ae3da45b37cd8c66183381, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -161,7 +161,7 @@ Animator:
   m_GameObject: {fileID: 4079318911564459586}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b01fc8c2abff6bd4d9b6c9a5e2949e51, type: 2}
+  m_Controller: {fileID: 9100000, guid: 03e53c5426a72ce4ca2ee9692932b6a9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1a17978188a48a2bc633d435f794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   evilcatDeath: {fileID: 61961956473589905}
 --- !u!82 &61961956473589905
 AudioSource:
