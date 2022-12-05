@@ -47,19 +47,22 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (transform.parent != null)
+        {
+            Debug.Log("transform.parent not null");
+        }
         directionX = Input.GetAxisRaw("Horizontal");
 
         //move left or right
   
         body.velocity = new Vector2(directionX * movementSpeed, body.velocity.y);
  
-        if (IsPlayerGrounded() && !Input.GetButton("Jump") && (body.velocity.y == 0f))
+        if ((IsPlayerGrounded() || transform.parent != null) && !Input.GetButton("Jump") && (body.velocity.y == 0f))
         {
             doubleJump = false;
         }
     
-        if ((Input.GetButtonDown("Jump") && (IsPlayerGrounded() || doubleJump)) || (isWallSliding && Input.GetButtonDown("Jump")))
+        if ((Input.GetButtonDown("Jump") && ((IsPlayerGrounded() || transform.parent != null) || doubleJump)) || (isWallSliding && Input.GetButtonDown("Jump")))
         {
             body.velocity = new Vector2(body.velocity.x, jumpForce);
             jumpSound.Play();
