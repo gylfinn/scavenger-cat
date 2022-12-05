@@ -54,8 +54,7 @@ public class PlayerMovement : MonoBehaviour
   
         body.velocity = new Vector2(directionX * movementSpeed, body.velocity.y);
  
-
-        if (IsPlayerGrounded() && !Input.GetButton("Jump"))
+        if (IsPlayerGrounded() && !Input.GetButton("Jump") && (body.velocity.y == 0f))
         {
             doubleJump = false;
         }
