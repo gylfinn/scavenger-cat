@@ -12,6 +12,7 @@ TagManager:
   - Dog
   - RottenFish
   - BlockBox
+  - Platform
   layers:
   - Default
   - TransparentFX
