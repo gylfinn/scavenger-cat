@@ -10,7 +10,6 @@ public class DogLogic : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(isBarking);
         if (Vector3.Distance (transform.position, player.transform.position) < 10)
         {
             if (isBarking == false)
