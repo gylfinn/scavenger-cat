@@ -12,6 +12,8 @@ TagManager:
   - Dog
   - RottenFish
   - BlockBox
+  - Platform
+  - DogStop
   layers:
   - Default
   - TransparentFX
@@ -23,7 +25,7 @@ TagManager:
   - Walls
   - Jumpable Walls
   - Player
-  - NPC
+  - Enemy
   - 
   - 
   - 

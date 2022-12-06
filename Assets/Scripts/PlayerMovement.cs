@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isWallSliding = false;
     RaycastHit2D wallCheckHit;
     float jumpTime;
+    private Transform parent;
 
     // Start is called before the first frame update
     void Start()
@@ -47,19 +48,18 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         directionX = Input.GetAxisRaw("Horizontal");
-
+        parent = transform.parent;
         //move left or right
   
         body.velocity = new Vector2(directionX * movementSpeed, body.velocity.y);
- 
-        if (IsPlayerGrounded() && !Input.GetButton("Jump") && (body.velocity.y == 0f))
+        
+        if ((IsPlayerGrounded() && !Input.GetButton("Jump") && (body.velocity.y == 0f)) || (!Input.GetButton("Jump") && parent != null))
         {
             doubleJump = false;
         }
     
-        if ((Input.GetButtonDown("Jump") && (IsPlayerGrounded() || doubleJump)) || (isWallSliding && Input.GetButtonDown("Jump")))
+        if ((Input.GetButtonDown("Jump") && (IsPlayerGrounded() || parent != null || doubleJump)) || (isWallSliding && Input.GetButtonDown("Jump")))
         {
             body.velocity = new Vector2(body.velocity.x, jumpForce);
             jumpSound.Play();
