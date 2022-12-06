@@ -10,6 +10,7 @@ public class EnemyLogic : MonoBehaviour
     [SerializeField]private GameObject player;
     [SerializeField]private float jumpForce = 15f;
     [SerializeField]private float jumpLength = 3;
+    [SerializeField]private float MinDistanceToPlayerToJump = 10;
     private bool isJumping = false;
     [SerializeField]private bool jumpDir = false;
     private bool firstJump;
@@ -17,6 +18,7 @@ public class EnemyLogic : MonoBehaviour
     MovementState state;
     void Start()
     {
+        Physics2D.IgnoreLayerCollision(10, 10, true);
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -27,7 +29,7 @@ public class EnemyLogic : MonoBehaviour
             Debug.Log(tag);
         }
         
-        if (Vector3.Distance (transform.position, player.transform.position) < 10)
+        if (Vector3.Distance (transform.position, player.transform.position) < MinDistanceToPlayerToJump)
         {
             if (isJumping == false)
             {
