@@ -5,31 +5,27 @@ using UnityEngine;
 public class DogLogic : MonoBehaviour
 {
     private bool isBarking;
-    private bool firstBark;
     [SerializeField]private AudioSource dogsound;
     [SerializeField]private GameObject player;
 
     private void Update()
     {
+        Debug.Log(isBarking);
         if (Vector3.Distance (transform.position, player.transform.position) < 10)
         {
             if (isBarking == false)
             {
-                if (!firstBark)
-                {
-                    DogBarking();
-                    firstBark = true;
-                }
-                Invoke("DogBarking", 3);//this will happen after 2 seconds
+                StartCoroutine(DogBarking());
                 isBarking = true;
             }
         }
     }
 
-    private void DogBarking()
+    private IEnumerator DogBarking()
     {
         //Play Bark Sound;
         dogsound.Play();
+        yield return new WaitForSeconds(3);
         isBarking = !isBarking;
     }
 }
