@@ -10,11 +10,10 @@ public class PlayerFishBar : MonoBehaviour
     [SerializeField]private Image currentFishBar;
     void Awake()
     {
-        totalFishBar.fillAmount = 1;
+        totalFishBar.fillAmount = fishCollection.totalFish/5;
     }
     void Update()
     {
-        Debug.Log(fishCollection.fishCollected / fishCollection.totalFish);
-        currentFishBar.fillAmount = fishCollection.fishCollected / fishCollection.totalFish;
+        currentFishBar.fillAmount = fishCollection.fishCollected / 5;
     }
 }
