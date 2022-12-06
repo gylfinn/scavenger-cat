@@ -160,7 +160,7 @@ MonoBehaviour:
   jumpableGround:
     serializedVersion: 2
     m_Bits: 64
-  movementSpeed: 10
+  movementSpeed: 15
   jumpForce: 14
   jumpSound: {fileID: 6429463408114492054}
   wallJumpTime: 0.1
