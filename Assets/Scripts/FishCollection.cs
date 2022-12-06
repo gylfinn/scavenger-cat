@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class FishCollection : MonoBehaviour
 {
-    private int fishCollected = 0;
+    public float fishCollected = 0;
     bool isOpen = false;
 
     [SerializeField]private Text fishText;
-    [SerializeField]private int totalFish = 1;
+    [SerializeField]public float totalFish = 1;
     [SerializeField]private GameObject gate;
     [SerializeField]private GameObject levelFinish;
     [SerializeField] private AudioSource itemCollectingSound;
