@@ -31,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.CompareTag("RottenFish"))
         {
             TakeDamage();
+            Destroy(collision.gameObject);
         }
     }
     public void TakeDamage()
