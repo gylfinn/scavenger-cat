@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c055e3bdf44644083cbd8517410705, type: 3}
   m_Name: currentHealthSo
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   _value: 9
+=======
+  _value: 7
+>>>>>>> b1f4c0ed6d8619ee9d1680adb60c9a944f97d75a
