@@ -30,11 +30,11 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("RottenFish"))
         {
-            TakeDamage();
+            Take1Damage();
             Destroy(collision.gameObject);
         }
     }
-    public void TakeDamage()
+    public void Take1Damage()
     {
         currentHealth.Value -= 1;
 
@@ -51,35 +51,43 @@ public class PlayerHealth : MonoBehaviour
             PlayerDeath();
         }
     }
-    private void Update()
+    public void Take2Damage()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        currentHealth.Value -= 2;
+
+        if (currentHealth.Value > 0)
         {
-            TakeDamage();
+            //player hurt
+            anim.SetTrigger("hurt");
+            StartCoroutine(Invulnerability());
+            hurtSound.Play();
+        }
+        else
+        {
+            //player dead
+            PlayerDeath();
         }
     }
+
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Trap"))
         {
-            coll.enabled = false;
-            currentHealth.Value -= 1;
-            PlayerDeath();
+            Take1Damage();
         }
         else if (collision.gameObject.CompareTag("Dog"))
         {
-            currentHealth.Value -= 1;
+            
             dogBark.Play();
-            PlayerDeath();
+            Take2Damage();
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
             if ((collision.gameObject.transform.position.y + 1.5f) > this.transform.position.y)
             {
-                currentHealth.Value -= 1;
-                PlayerDeath();
+                Take2Damage();
             }
         }
 
@@ -131,16 +139,5 @@ public class PlayerHealth : MonoBehaviour
         }
         Physics2D.IgnoreLayerCollision(9, 10, false);
     }
-    private IEnumerator Die()
-    {
-        Physics2D.IgnoreLayerCollision(9, 10, true);
-        for (int i = 0; i < numberOfFlashes; i++)
-        {  
-            spriteRend.color = new Color(1,0,0, 0.5f);
-            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
-            spriteRend.color = Color.white;
-            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
-        }
-        Physics2D.IgnoreLayerCollision(9, 10, false);
-    }
+
 }
