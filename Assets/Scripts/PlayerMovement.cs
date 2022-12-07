@@ -68,7 +68,10 @@ public class PlayerMovement : MonoBehaviour
         {
             body.velocity = new Vector2(body.velocity.x, jumpForce);
             jumpSound.Play();
-            CreateDust();
+            if (!isWallSliding)
+            {
+                CreateDust();
+            }
             doubleJump = !doubleJump;
         }
 
