@@ -28,6 +28,17 @@ public class PlayerHealth : MonoBehaviour
         spriteRend = GetComponent<SpriteRenderer>();
     }
 
+    private void Update()
+    {
+        if (spriteRend.flipX)
+        {
+            livesLostText.alignment = TextAlignmentOptions.Right;
+        } 
+        else
+        {
+            livesLostText.alignment = TextAlignmentOptions.Left;
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("RottenFish"))
@@ -43,8 +54,8 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth.Value > 0)
         {
             //player hurt
-            livesLostText.text = "1 LIFE LOST!";
-            StartCoroutine(DisplayTextFor3Seconds());
+            livesLostText.text = "-1";
+            StartCoroutine(DisplayTextFor2Seconds());
             anim.SetTrigger("hurt");
             StartCoroutine(Invulnerability());
             hurtSound.Play();
@@ -55,11 +66,10 @@ public class PlayerHealth : MonoBehaviour
             PlayerDeath();
         }
     }
-    private IEnumerator DisplayTextFor3Seconds()
+    private IEnumerator DisplayTextFor2Seconds()
     {
-        
         livesLostText.enabled = true;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         livesLostText.enabled = false;
     }
     public void Take2Damage()
@@ -69,8 +79,8 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth.Value > 0)
         {
             //player hurt
-            livesLostText.text = "2 LIVES LOST!";
-            StartCoroutine(DisplayTextFor3Seconds());
+            livesLostText.text = "-2";
+            StartCoroutine(DisplayTextFor2Seconds());
             anim.SetTrigger("hurt");
             StartCoroutine(Invulnerability());
             hurtSound.Play();
