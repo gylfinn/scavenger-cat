@@ -107,6 +107,15 @@ public class PlayerHealth : MonoBehaviour
         currentHealth.Value = startingHealth.Value;
     }
 
+    public void Add3Lives()
+    {
+        currentHealth.Value += 3;
+        if (currentHealth.Value > startingHealth.Value)
+        {
+            currentHealth.Value = 9;
+        }
+    }
+
     public void CallGameOver()
     {
         currentHealth.Value = 9;
