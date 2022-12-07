@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]private AudioSource hurtSound;
     [SerializeField] private AudioSource deathSound;
     [SerializeField]private AudioSource dogBark;
     [SerializeField]public FloatSo startingHealth;
+    [SerializeField]private TextMeshProUGUI livesLostText;
     private Animator anim;
     private Rigidbody2D body;
     private BoxCollider2D coll;
@@ -41,6 +43,8 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth.Value > 0)
         {
             //player hurt
+            livesLostText.text = "1 LIFE LOST!";
+            StartCoroutine(DisplayTextFor3Seconds());
             anim.SetTrigger("hurt");
             StartCoroutine(Invulnerability());
             hurtSound.Play();
@@ -51,6 +55,13 @@ public class PlayerHealth : MonoBehaviour
             PlayerDeath();
         }
     }
+    private IEnumerator DisplayTextFor3Seconds()
+    {
+        
+        livesLostText.enabled = true;
+        yield return new WaitForSeconds(3);
+        livesLostText.enabled = false;
+    }
     public void Take2Damage()
     {
         currentHealth.Value -= 2;
@@ -58,6 +69,8 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth.Value > 0)
         {
             //player hurt
+            livesLostText.text = "2 LIVES LOST!";
+            StartCoroutine(DisplayTextFor3Seconds());
             anim.SetTrigger("hurt");
             StartCoroutine(Invulnerability());
             hurtSound.Play();
@@ -107,6 +120,15 @@ public class PlayerHealth : MonoBehaviour
         currentHealth.Value = startingHealth.Value;
     }
 
+    public void Add3Lives()
+    {
+        currentHealth.Value += 3;
+        if (currentHealth.Value > startingHealth.Value)
+        {
+            currentHealth.Value = 9;
+        }
+    }
+
     public void CallGameOver()
     {
         currentHealth.Value = 9;
@@ -123,7 +145,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
-           SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
         }
     }
 
