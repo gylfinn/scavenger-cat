@@ -9,15 +9,14 @@ public class FishCollection : MonoBehaviour
     bool isOpen = false;
 
     [SerializeField]public float totalFish = 1;
-    [SerializeField]private GameObject gate;
-    [SerializeField]private GameObject levelFinish;
     [SerializeField] private AudioSource itemCollectingSound;
     private GateController gateController;
 
+  
 
     void Start()
     {
-        gateController = gate.GetComponent<GateController>();
+        gateController = FindObjectOfType<GateController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
