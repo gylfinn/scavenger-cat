@@ -15476,7 +15476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7945161037790441616, guid: ae6c22f599d4cb045a791ccb89b96f7d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10.999664
+      value: -10.999634
       objectReference: {fileID: 0}
     - target: {fileID: 7945161037790441617, guid: ae6c22f599d4cb045a791ccb89b96f7d, type: 3}
       propertyPath: fishCollection
@@ -15488,7 +15488,7 @@ PrefabInstance:
       objectReference: {fileID: 6429463409256871939}
     - target: {fileID: 7945161037948984351, guid: ae6c22f599d4cb045a791ccb89b96f7d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10.999664
+      value: -10.999634
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae6c22f599d4cb045a791ccb89b96f7d, type: 3}
@@ -15763,11 +15763,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3670397980440316211, guid: e12cff5a9233c0e4c8eced0fb355edbb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -16.07
       objectReference: {fileID: 0}
     - target: {fileID: 3670397980440316211, guid: e12cff5a9233c0e4c8eced0fb355edbb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 13.65
       objectReference: {fileID: 0}
     - target: {fileID: 3670397980440316211, guid: e12cff5a9233c0e4c8eced0fb355edbb, type: 3}
       propertyPath: m_LocalPosition.z
