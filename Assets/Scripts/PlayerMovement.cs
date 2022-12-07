@@ -9,7 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D coll;
     private Animator anim;
     private SpriteRenderer sprite;
-
+    
+    [SerializeField]private ParticleSystem dust;
 
 
     private float directionX = 0f;
@@ -56,6 +57,10 @@ public class PlayerMovement : MonoBehaviour
         
         if ((IsPlayerGrounded() && !Input.GetButton("Jump") && (body.velocity.y >= -0.001f && body.velocity.y <= 0.001f)) || (!Input.GetButton("Jump") && parent != null))
         {
+            if (doubleJump)
+            {
+                CreateDust();
+            }
             doubleJump = false;
         }
     
@@ -63,13 +68,13 @@ public class PlayerMovement : MonoBehaviour
         {
             body.velocity = new Vector2(body.velocity.x, jumpForce);
             jumpSound.Play();
+            CreateDust();
             doubleJump = !doubleJump;
         }
 
         //The longer you hold jump button the higher to jump
         if (Input.GetButtonUp("Jump") && body.velocity.y > 0f)
-        {
-            
+        {   
             body.velocity = new Vector2(body.velocity.x, body.velocity.y * 0.5f);
         }
 
@@ -154,4 +159,9 @@ public class PlayerMovement : MonoBehaviour
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 	}
+
+    private void CreateDust()
+    {
+        dust.Play();
+    }
 }
