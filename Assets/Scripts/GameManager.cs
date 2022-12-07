@@ -33,10 +33,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     public void GameOver()
     {
         //Load GameOver Scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+        SceneManager.LoadScene("Main Scene End Screen"); 
     }
 
 }

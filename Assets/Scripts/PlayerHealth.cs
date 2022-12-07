@@ -64,6 +64,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Trap"))
         {
+            coll.enabled = false;
             currentHealth.Value -= 1;
             PlayerDeath();
         }
@@ -75,7 +76,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
-            if ((collision.gameObject.transform.localPosition.y + 1.5f) > this.transform.localPosition.y)
+            if ((collision.gameObject.transform.position.y + 1.5f) > this.transform.position.y)
             {
                 currentHealth.Value -= 1;
                 PlayerDeath();
@@ -130,5 +131,16 @@ public class PlayerHealth : MonoBehaviour
         }
         Physics2D.IgnoreLayerCollision(9, 10, false);
     }
-
+    private IEnumerator Die()
+    {
+        Physics2D.IgnoreLayerCollision(9, 10, true);
+        for (int i = 0; i < numberOfFlashes; i++)
+        {  
+            spriteRend.color = new Color(1,0,0, 0.5f);
+            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
+            spriteRend.color = Color.white;
+            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
+        }
+        Physics2D.IgnoreLayerCollision(9, 10, false);
+    }
 }

@@ -27,8 +27,9 @@ public class LevelComplete : MonoBehaviour
 
     private void CompleteLevel()
     {
-        playerLifeLogic.ResetLives();
-        playerLifeLogic.RestartLevel();
+        GameManager.instance.LoadNextLevel();
+        // playerLifeLogic.ResetLives();
+        // playerLifeLogic.RestartLevel();
 
     }
 
