@@ -30,6 +30,11 @@ public class LevelSelector : MonoBehaviour
     {
         SceneManager.LoadScene("Lorraine Scene Level 2");
     }
+        public void OpenLevelSelectSceme () 
+    {
+        SceneManager.LoadScene("Main Scene Level Selector");
+    }
+
 
 
 }
