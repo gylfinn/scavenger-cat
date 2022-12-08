@@ -139,24 +139,16 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void CallGameOver()
+    public void _RestartLevel()
     {
-        currentHealth.Value = 9;
-        GameManager.instance.GameOver();
+        ResetLives();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
     }
 
     //reloads current level
     public void RestartLevel()
     {
-        if (currentHealth.Value <= 0)
-        {
-            Invoke("CallGameOver",2);
-            // GameManager.instance.GameOver();
-        }
-        else
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
-        }
+        Invoke("_RestartLevel", 2);
     }
 
     private IEnumerator Invulnerability()
