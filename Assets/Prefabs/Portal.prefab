@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 3234843899306988959}
   - component: {fileID: 3234843899306988958}
   - component: {fileID: 3234843899306988957}
-  - component: {fileID: 1032570017553375373}
+  - component: {fileID: 7541528746946362426}
   m_Layer: 11
   m_Name: Portal1
   m_TagString: Portal1
@@ -110,7 +110,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: -2080857522, guid: 762cabd7c35a30047ad1e03ec44ba2e2, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8235294}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -154,8 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal2: 0
   distance: 0.2
---- !u!70 &1032570017553375373
-CapsuleCollider2D:
+--- !u!58 &7541528746946362426
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -167,9 +167,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.058368683, y: -0.05836487}
-  m_Size: {x: 0.7157669, y: 1.8832703}
-  m_Direction: 0
+  m_Offset: {x: 0.0067443848, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.64255524
 --- !u!1 &3942927164586595206
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 4506273460376681378}
   - component: {fileID: 7590861312618020902}
   - component: {fileID: 4060260616926860678}
-  - component: {fileID: 9177797616503268083}
+  - component: {fileID: 1966290651526746860}
   m_Layer: 11
   m_Name: Portal2
   m_TagString: Portal2
@@ -247,7 +247,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: -2080857522, guid: 762cabd7c35a30047ad1e03ec44ba2e2, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8235294}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -291,8 +291,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal2: 1
   distance: 0.2
---- !u!70 &9177797616503268083
-CapsuleCollider2D:
+--- !u!58 &1966290651526746860
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -304,6 +304,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.058368683, y: -0.05836487}
-  m_Size: {x: 0.7157669, y: 1.8832703}
-  m_Direction: 0
+  m_Offset: {x: -0.03372574, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.6425514
