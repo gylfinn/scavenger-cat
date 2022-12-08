@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class LevelSelector : MonoBehaviour
 {
 
+    private int currentLevel;
+
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
     public void OpenScene1 () 
     {
         SceneManager.LoadScene(1);
@@ -37,7 +43,11 @@ public class LevelSelector : MonoBehaviour
     }
     public void OpenMainMenuScreen () 
     {
-        SceneManager.LoadScene("Main Scene Start Screen 1");
+        SceneManager.LoadScene(0);
+    }
+    public void PlayCurrentLevel()
+    {
+        GameManager.instance.LoadCurrentLevel();
     }
     public void PlayGame () 
     {

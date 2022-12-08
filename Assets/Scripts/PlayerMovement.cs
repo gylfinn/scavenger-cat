@@ -173,7 +173,7 @@ public class PlayerMovement : MonoBehaviour
 	{ 
 		if (other.gameObject.tag == "Finish")
 		{
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			GameManager.instance.LoadNextLevel();
 		}
 	}
 

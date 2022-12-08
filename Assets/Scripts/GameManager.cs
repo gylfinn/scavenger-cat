@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    public int currentLevel;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 
     void Awake()
@@ -33,6 +32,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void LoadCurrentLevel()
+    {
+        SceneManager.LoadScene(currentLevel);
+    }
     public void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
