@@ -1213,7 +1213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8108569746082993251, guid: 6b390f67f2efb6b40943206626246b76, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: GotoMainMenu
+      value: OpenMainMenuScreen
       objectReference: {fileID: 0}
     - target: {fileID: 8108569746082993251, guid: 6b390f67f2efb6b40943206626246b76, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
