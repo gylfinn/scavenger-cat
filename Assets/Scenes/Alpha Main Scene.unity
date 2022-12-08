@@ -154,7 +154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62433029}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 44.027, y: -2.29, z: 0}
+  m_LocalPosition: {x: 44.027, y: -3.36, z: 0}
   m_LocalScale: {x: 0.8125, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -169,8 +169,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62433029}
-  m_Text: "Dumb dogs are to big for \nScavenger cat to defeat \nbut maybe you can
-    try to avoid it"
+  m_Text: 'Dumb dogs can''t be defeated
+
+    but they can be avoided'
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -374,7 +375,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126688090}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.99, y: -2.09, z: 0}
+  m_LocalPosition: {x: 29.96, y: -3.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -389,7 +390,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126688090}
-  m_Text: "Cats hate rotten food, \nDon't let Scavenger cat\ntouch it!"
+  m_Text: 'Don''t touch
+
+    rotten fish!'
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -471,7 +474,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191188129}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.72, y: 0.54, z: 0}
+  m_LocalPosition: {x: 10.72, y: -1.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -486,8 +489,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191188129}
-  m_Text: "Be careful of evil cats \nyou can jump on them\nbut don't let them jump
-    on you!"
+  m_Text: 'Evil cats can jump on you
+
+    but you can also jump on them'
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -142224,7 +142228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737513583}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.78, y: 4.92, z: 0}
+  m_LocalPosition: {x: -4.76, y: 2.12, z: 0}
   m_LocalScale: {x: 0.725, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -142239,7 +142243,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737513583}
-  m_Text: "Scavenger cat must collect\nall fishes to advance \nto the next stage"
+  m_Text: Collect all fishes to open the gates
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -142442,9 +142446,8 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136257961}
-  m_Text: "Good job! \nyou have mastered the basics of Scavenger cat!\n\nNow it's
-    time to use what you have learned\nContinue your journey to become the king of
-    the scavengers!"
+  m_Text: "Good job! \nyou have mastered the basics of Scavenger cat!\n\nContinue
+    your journey to become the king of the scavengers!"
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -143134,7 +143137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880753503}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 46.9, y: 2.21, z: 0}
+  m_LocalPosition: {x: 52.32, y: 2.57, z: 0}
   m_LocalScale: {x: 0.625, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -143149,9 +143152,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880753503}
-  m_Text: "Scavenger cat can use it's claws to cling to some walls\nand climb them,
-    jump on the wall and press SPACEBAR\nwhile holding the ARROW KEY to climb it,
-    \nDARK WALLS ARE CLIMBABLE!"
+  m_Text: 'Some walls are climbable
+
+    press SPACEBAR and ARROW keys to climb'
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
