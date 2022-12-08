@@ -6,8 +6,12 @@ public class DogLogic : MonoBehaviour
 {
     private bool isBarking;
     [SerializeField]private AudioSource dogsound;
-    [SerializeField]private GameObject player;
+    private Transform player;
 
+    void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     private void Update()
     {
         if (Vector3.Distance (transform.position, player.transform.position) < 10)

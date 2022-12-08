@@ -37,6 +37,10 @@ public class PlayerMovement : MonoBehaviour
     float jumpTime;
     private Transform parent;
 
+    private float coyoteTime = 0.2f;
+    private float coyoteTimeCounter;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +58,15 @@ public class PlayerMovement : MonoBehaviour
         //move left or right
   
         body.velocity = new Vector2(directionX * movementSpeed, body.velocity.y);
+
+       if (IsPlayerGrounded() || parent != null || isWallSliding)
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
         
         if ((IsPlayerGrounded() && !Input.GetButton("Jump") && (body.velocity.y >= -0.001f && body.velocity.y <= 0.001f)) || (!Input.GetButton("Jump") && parent != null))
         {
@@ -64,9 +77,10 @@ public class PlayerMovement : MonoBehaviour
             doubleJump = false;
         }
     
-        if ((Input.GetButtonDown("Jump") && (IsPlayerGrounded() || parent != null || doubleJump)) || (isWallSliding && Input.GetButtonDown("Jump")))
+        if ((Input.GetButtonDown("Jump") && (coyoteTimeCounter > 0f || doubleJump)) || (isWallSliding && Input.GetButtonDown("Jump")))
         {
             body.velocity = new Vector2(body.velocity.x, jumpForce);
+            coyoteTimeCounter = 0f;
             jumpSound.Play();
             if (!isWallSliding)
             {

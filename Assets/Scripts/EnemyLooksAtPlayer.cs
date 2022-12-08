@@ -5,8 +5,13 @@ using UnityEngine;
 public class EnemyLooksAtPlayer : MonoBehaviour
 {
 
-    [SerializeField]private Transform player;
+    private Transform player;
     private bool flip;
+
+    void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     void Update()
     {
         Vector2 scale = transform.localScale;
