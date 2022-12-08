@@ -7,7 +7,7 @@ public class EnemyLogic : MonoBehaviour
 {
     private Animator anim;
     private Rigidbody2D body;
-    [SerializeField]private GameObject player;
+    private Transform player;
     [SerializeField]private float jumpForce = 15f;
     [SerializeField]private float jumpLength = 3;
     [SerializeField]private float MinDistanceToPlayerToJump = 10;
@@ -18,6 +18,7 @@ public class EnemyLogic : MonoBehaviour
     MovementState state;
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         Physics2D.IgnoreLayerCollision(10, 10, true);
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();

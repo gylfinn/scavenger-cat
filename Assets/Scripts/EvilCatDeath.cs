@@ -5,13 +5,17 @@ using UnityEngine;
 public class EvilCatDeath : MonoBehaviour
 {
     private Animator anim;
-    [SerializeField]
     private GameObject player;
     private BoxCollider2D boxCollider;
     private bool isDead;
     private Rigidbody2D body;
     private Rigidbody2D player_body;
     [SerializeField]private AudioSource evilcatDeath;
+
+    void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     private void Start()
     {
