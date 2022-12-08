@@ -36,6 +36,10 @@ public class LevelSelector : MonoBehaviour
     {
         SceneManager.LoadScene(6);
     }
+    public void OpenScene7 () 
+    {
+        SceneManager.LoadScene(7);
+    }
     public void OpenLevelSelectSceme () 
     {
         SceneManager.LoadScene("Main Scene Level Selector");
