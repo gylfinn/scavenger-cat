@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame ()
     {
-        SceneManager.LoadScene("Gylfi Scene Level 2");
+        SceneManager.LoadScene(1);
     }
 
     public void LevelSelector()
