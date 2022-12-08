@@ -34,14 +34,8 @@ public class EnemyLogic : MonoBehaviour
         {
             if (isJumping == false)
             {
-                if (!firstJump)
-                {
-                    EnemyCatJumping();
-                    firstJump = true;
-                }
-                
-                Invoke("EnemyCatJumping", 2);//this will happen after 2 seconds
                 isJumping = true;
+                StartCoroutine(CatJump());
             }
         }
 
@@ -73,6 +67,19 @@ public class EnemyLogic : MonoBehaviour
         jumpDir = !jumpDir;
         isJumping = !isJumping;
     }
-
+    private IEnumerator CatJump()
+    {
+        if (jumpDir)
+        {
+            body.velocity = new Vector2(jumpLength, jumpForce);
+        }
+        else
+        {
+            body.velocity = new Vector2(-jumpLength, jumpForce);
+        }
+        jumpDir = !jumpDir;
+        yield return new WaitForSeconds(2);
+        isJumping = !isJumping;
+    }
 
 }
