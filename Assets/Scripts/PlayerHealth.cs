@@ -141,11 +141,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void _RestartLevel()
     {
-        //Call GameOver
-        Debug.Log(GameManager.instance.currentLevel);
+        //Call GameOverscene
         GameManager.instance.currentLevel = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log(GameManager.instance.currentLevel);
-        SceneManager.LoadScene(9); 
+        SceneManager.LoadScene(10); 
     }
 
     //reloads current level
