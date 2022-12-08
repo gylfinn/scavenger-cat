@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Scene Start Screen 1.unity
     guid: 4498edaa1594d6c4a9e905ec9cf9210f
   - enabled: 1
+    path: Assets/Scenes/Alpha Main Scene.unity
+    guid: 3c9f5c8d1543587469bd63e3cb46c429
+  - enabled: 1
     path: Assets/Scenes/Lorraine Scene Level 1.unity
     guid: 58b0413ecfb34874b9ff7e72ee81307d
   - enabled: 1
