@@ -31,13 +31,6 @@ public class LevelSelector : MonoBehaviour
         //Currently only have 5 levels
         SceneManager.LoadScene(1);
     }
-<<<<<<< HEAD
-    public void GotoMainMenu()
-    {
-        SceneManager.LoadScene(0);
-    }
-=======
->>>>>>> fe2eb9783479ae3b97c77af53b56cc516481613b
     public void OpenLevelSelectSceme () 
     {
         SceneManager.LoadScene("Main Scene Level Selector");
