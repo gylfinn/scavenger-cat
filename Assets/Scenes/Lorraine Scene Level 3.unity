@@ -67962,7 +67962,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &633388604
 PrefabInstance:
@@ -68739,6 +68739,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4523619447506083957, guid: 4141e3d9cf0a19c418a0ce076183c321, type: 3}
+      propertyPath: gateOpenSound
+      value: 
+      objectReference: {fileID: 1301642922}
     - target: {fileID: 8809326092647953141, guid: 4141e3d9cf0a19c418a0ce076183c321, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -68789,6 +68793,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4141e3d9cf0a19c418a0ce076183c321, type: 3}
+--- !u!82 &1301642922 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3652070362642213265, guid: 4141e3d9cf0a19c418a0ce076183c321, type: 3}
+  m_PrefabInstance: {fileID: 1301642921}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1318591975
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70420,7 +70429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7945161036261419043, guid: ae6c22f599d4cb045a791ccb89b96f7d, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7945161036261419043, guid: ae6c22f599d4cb045a791ccb89b96f7d, type: 3}
       propertyPath: m_AnchorMax.x

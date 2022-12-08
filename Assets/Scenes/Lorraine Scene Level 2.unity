@@ -56129,6 +56129,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4523619447506083957, guid: 4141e3d9cf0a19c418a0ce076183c321, type: 3}
+      propertyPath: gateOpenSound
+      value: 
+      objectReference: {fileID: 1448956202}
     - target: {fileID: 8809326092647953141, guid: 4141e3d9cf0a19c418a0ce076183c321, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -56179,6 +56183,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4141e3d9cf0a19c418a0ce076183c321, type: 3}
+--- !u!82 &1448956202 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3652070362642213265, guid: 4141e3d9cf0a19c418a0ce076183c321, type: 3}
+  m_PrefabInstance: {fileID: 1448956201}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1462981263
 PrefabInstance:
   m_ObjectHideFlags: 0
