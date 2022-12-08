@@ -31,15 +31,25 @@ public class LevelSelector : MonoBehaviour
         //Currently only have 5 levels
         SceneManager.LoadScene(1);
     }
+<<<<<<< HEAD
+=======
     public void GotoMainMenu()
     {
         SceneManager.LoadScene(0);
     }
+>>>>>>> fa8bf57eaaebf14d1478a70d91c8c2239c777afb
     public void OpenLevelSelectSceme () 
     {
         SceneManager.LoadScene("Main Scene Level Selector");
     }
-
-
+    public void OpenMainMenuScreen () 
+    {
+        SceneManager.LoadScene("Main Scene Start Screen 1");
+    }
+    public void PlayGame () 
+    {
+        SceneManager.LoadScene("Main Scene Level 1");
+    }
+    
 
 }
