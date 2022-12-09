@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
     private Rigidbody2D body;
     private BoxCollider2D coll;
     [SerializeField]public FloatSo currentHealth;
+    private bool isImmune = false;
 
     private PlayerMovement playerMovement;
 
@@ -109,15 +110,17 @@ public class PlayerHealth : MonoBehaviour
         {
             if ((collision.gameObject.transform.position.y + 1.5f) > this.transform.position.y)
             {
-                Take2Damage();
+                if (isImmune==false){
+                Take2Damage();}
             }
         }
         else if (collision.gameObject.CompareTag("Dog"))
         {
             if (collision.gameObject.transform.position.y + 1.5f > this.transform.position.y)
             {
+                if (isImmune==false){
                 dogBark.Play();
-                Take2Damage();
+                Take2Damage();}
             }
 
             else
@@ -177,7 +180,8 @@ public class PlayerHealth : MonoBehaviour
 
     private IEnumerator Invulnerability()
     {
-        Physics2D.IgnoreLayerCollision(9, 10, true);
+        isImmune=true;
+        Physics2D.IgnoreLayerCollision(9, 12, true);
         for (int i = 0; i < numberOfFlashes; i++)
         {  
             spriteRend.color = new Color(1,0,0, 0.5f);
@@ -185,7 +189,8 @@ public class PlayerHealth : MonoBehaviour
             spriteRend.color = Color.white;
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
         }
-        Physics2D.IgnoreLayerCollision(9, 10, false);
+        Physics2D.IgnoreLayerCollision(9, 12, false);
+        isImmune=false;
     }
 
 }
