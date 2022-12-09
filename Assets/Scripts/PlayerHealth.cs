@@ -114,7 +114,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Dog"))
         {
-            if (collision.gameObject.transform.position.y + 1f > this.transform.position.y)
+            if (collision.gameObject.transform.position.y + 1.5f > this.transform.position.y)
             {
                 dogBark.Play();
                 Take2Damage();
@@ -165,6 +165,7 @@ public class PlayerHealth : MonoBehaviour
     {
         //Call GameOverscene
         GameManager.instance.currentLevel = SceneManager.GetActiveScene().buildIndex;
+        ResetLives();
         SceneManager.LoadScene(10); 
     }
 
