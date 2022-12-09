@@ -55166,9 +55166,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1532c7e67c2d60c4c8780da14b7e8fcf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5d6e42b338547477aa7a88708f894463, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.144
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -60478,7 +60478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7945161037790441616, guid: ae6c22f599d4cb045a791ccb89b96f7d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -22
+      value: -21.99997
       objectReference: {fileID: 0}
     - target: {fileID: 7945161037790441617, guid: ae6c22f599d4cb045a791ccb89b96f7d, type: 3}
       propertyPath: fishCollection
