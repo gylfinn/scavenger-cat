@@ -9,12 +9,15 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]private AudioSource hurtSound;
     [SerializeField] private AudioSource deathSound;
     [SerializeField]private AudioSource dogBark;
+    [SerializeField]private AudioSource dogHowl;
     [SerializeField]public FloatSo startingHealth;
     [SerializeField]private TextMeshProUGUI livesLostText;
     private Animator anim;
     private Rigidbody2D body;
     private BoxCollider2D coll;
     [SerializeField]public FloatSo currentHealth;
+
+    private PlayerMovement playerMovement;
 
    [Header("iFrames")]
     [SerializeField]private float iFramesDuration;
@@ -26,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     private void Update()
@@ -100,17 +104,35 @@ public class PlayerHealth : MonoBehaviour
         {
             Take1Damage();
         }
-        else if (collision.gameObject.CompareTag("Dog"))
-        {
-            
-            dogBark.Play();
-            Take2Damage();
-        }
+
         else if (collision.gameObject.CompareTag("Enemy"))
         {
             if ((collision.gameObject.transform.position.y + 1.5f) > this.transform.position.y)
             {
                 Take2Damage();
+            }
+        }
+        else if (collision.gameObject.CompareTag("Dog"))
+        {
+            if (collision.gameObject.transform.position.y + 1f > this.transform.position.y)
+            {
+                dogBark.Play();
+                Take2Damage();
+            }
+
+            else
+            {
+                playerMovement.doubleJump = true;
+                dogHowl.Play();
+                if (Input.GetButton("Jump"))
+                {
+                    body.velocity = new Vector2(body.velocity.x, 22f);
+                }
+                else
+                {
+                    body.velocity = new Vector2(body.velocity.x, 14f);
+                }
+                
             }
         }
 

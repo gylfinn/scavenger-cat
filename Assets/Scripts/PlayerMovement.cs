@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     private float directionX = 0f;
-    private bool doubleJump;
+    public bool doubleJump;
 
 
     [SerializeField]private LayerMask wallLayer;
